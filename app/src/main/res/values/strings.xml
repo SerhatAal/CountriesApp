@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Countries App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="countryCode">Country Code: %1$s</string>
+    <string name="for_more_information">For More Information</string>
+    <string name="country_name">%1$s</string>
+    <string name="favourites">Favourites</string>
+    <string name="empty_state">Your Favourite List is Empty!!</string>
+</resources>
