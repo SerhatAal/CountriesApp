@@ -67,7 +67,6 @@ class MainAdapter constructor(
 
     }
 
-
     fun setData(countries: List<Country>) {
         this.countries.apply {
             clear()

@@ -16,7 +16,7 @@ class FavouriteManager @Inject constructor(private val preferences: SharedPrefer
 
     fun getCountries(): ArrayList<Country>? {
         val gson = Gson()
-        val jsonString: String? = preferences.getString("countries", null)
+        val jsonString: String? = preferences.getString(Constants.SHARED_PREFERENCES_KEY, null)
         val type: Type? = object : TypeToken<ArrayList<Country>>() {}.type
 
         return gson.fromJson(jsonString, type)
@@ -29,13 +29,12 @@ class FavouriteManager @Inject constructor(private val preferences: SharedPrefer
         val editor = preferences.edit()
         val gson = Gson()
         val jsonString: String? = gson.toJson(countries)
-        editor.putString("countries", jsonString)
+        editor.putString(Constants.SHARED_PREFERENCES_KEY, jsonString)
         editor.apply()
 
         favLiveData?.postValue(true)
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
     fun removeCountry(country: Country) {
         val countries = getCountries() ?: arrayListOf()
 
@@ -44,7 +43,7 @@ class FavouriteManager @Inject constructor(private val preferences: SharedPrefer
         val editor = preferences.edit()
         val gson = Gson()
         val jsonString: String? = gson.toJson(countries)
-        editor.putString("countries", jsonString)
+        editor.putString(Constants.SHARED_PREFERENCES_KEY, jsonString)
         editor.apply()
 
         favLiveData?.postValue(true)

@@ -8,6 +8,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
+
     @GET("countries")
     suspend fun getCountries(
         @Header("X-RapidAPI-Key") token: String,

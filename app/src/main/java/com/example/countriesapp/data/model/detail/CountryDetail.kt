@@ -16,3 +16,4 @@ data class CountryDetail(
     @SerializedName("wikiDataId")
     val wikiDataId: String? = null,
 )
+

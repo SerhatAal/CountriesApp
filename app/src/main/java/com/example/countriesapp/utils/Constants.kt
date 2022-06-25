@@ -5,5 +5,5 @@ object Constants {
     const val WIKI_DATA_URL = "https://www.wikidata.org/wiki/"
     const val PREF_NAME = "country"
     const val LIMIT = "10"
-    const val SHARED_PREFERENCES_KEY = "country"
+    const val SHARED_PREFERENCES_KEY = "countries"
 }

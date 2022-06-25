@@ -1,10 +1,8 @@
 package com.example.countriesapp.ui.favourites
 
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.countriesapp.R
 import com.example.countriesapp.data.model.country.Country
@@ -35,17 +33,19 @@ class FavouritesAdapter(
             )
         )
 
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(countriesInFav[position])
-        holder.binding.itemCountry.setOnClickListener {
-            listener.onClickData(countriesInFav[position])
-        }
 
-        holder.binding.imageViewFavouriteState.setImageResource(R.drawable.ic_fav_state)
+        with(holder.binding) {
+            itemCountry.setOnClickListener {
+                listener.onClickData(countriesInFav[position])
+            }
 
-        holder.binding.imageViewFavouriteState.setOnClickListener {
-            favouriteManager.removeCountry(countriesInFav[position])
+            imageViewFavouriteState.setImageResource(R.drawable.ic_fav_state)
+
+            imageViewFavouriteState.setOnClickListener {
+                favouriteManager.removeCountry(countriesInFav[position])
+            }
         }
     }
 

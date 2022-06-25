@@ -14,6 +14,7 @@ class MainViewModel @Inject constructor(
     private val mainRepository: MainRepository,
     val favouriteManager: FavouriteManager
 ) : ViewModel() {
+
     fun fetchCountries() = liveData(Dispatchers.IO) {
         emit(Resource.loading(null))
         try {

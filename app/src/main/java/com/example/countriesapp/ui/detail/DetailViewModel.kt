@@ -3,8 +3,8 @@ package com.example.countriesapp.ui.detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.example.countriesapp.data.repository.MainRepository
-import com.example.countriesapp.utils.Resource
 import com.example.countriesapp.utils.FavouriteManager
+import com.example.countriesapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject

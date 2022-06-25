@@ -60,6 +60,4 @@ object NetworkModule {
     fun provideRestApiService(retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
     }
-
-
 }
