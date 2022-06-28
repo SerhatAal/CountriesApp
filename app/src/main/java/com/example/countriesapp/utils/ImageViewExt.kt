@@ -1,16 +1,25 @@
 package com.example.countriesapp.utils
 
 import android.widget.ImageView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
+import coil.ImageLoader
+import coil.decode.SvgDecoder
+import coil.request.ImageRequest
 import com.example.countriesapp.R
 
-fun ImageView.loadImage(url: String?) {
-    url?.let {
-        Glide.with(this)
-            .load(url)
-            .placeholder(R.drawable.ic_baseline_image)
-            .apply(RequestOptions().override(600, 200).fitCenter())
-            .into(this)
-    }
+fun ImageView.loadUrl(url: String?) {
+
+    val imageLoader = ImageLoader.Builder(this.context)
+        .componentRegistry { add(SvgDecoder(this@loadUrl.context)) }
+        .build()
+
+    val request = ImageRequest.Builder(this.context)
+        .crossfade(true)
+        .crossfade(500)
+        .placeholder(R.drawable.ic_baseline_image)
+        .error(R.drawable.ic_baseline_error)
+        .data(url)
+        .target(this)
+        .build()
+
+    imageLoader.enqueue(request)
 }

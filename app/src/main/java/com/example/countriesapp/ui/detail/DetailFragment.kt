@@ -10,10 +10,7 @@ import androidx.fragment.app.viewModels
 import com.example.countriesapp.R
 import com.example.countriesapp.data.model.country.Country
 import com.example.countriesapp.databinding.FragmentDetailBinding
-import com.example.countriesapp.utils.Constants
-import com.example.countriesapp.utils.Status
-import com.example.countriesapp.utils.loadImage
-import com.example.countriesapp.utils.viewBinding
+import com.example.countriesapp.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -45,7 +42,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                 when (countryDetailResponse.status) {
                     Status.SUCCESS -> {
                         with(binding) {
-                            imageViewFlag.loadImage(countryDetailResponse.data?.data?.flagImageUri)
+                            imageViewFlag.loadUrl(countryDetailResponse.data?.data?.flagImageUri?.replace("http", "https"))
                             textViewTitleToolbar.text = resources.getString(
                                 R.string.country_name,
                                 countryDetailResponse.data?.data?.name
